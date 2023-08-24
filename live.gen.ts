@@ -62,10 +62,13 @@ import * as $$$22 from "./loaders/vtex/navbar.ts";
 import * as $$$23 from "./loaders/vtex/proxy.ts";
 import * as $$$24 from "./loaders/vtex/user.ts";
 import * as $$$25 from "./loaders/vtex/wishlist.ts";
-import * as $$$26 from "./loaders/x/font.ts";
-import * as $$$27 from "./loaders/x/image.ts";
-import * as $$$28 from "./loaders/x/redirects.ts";
-import * as $$$29 from "./loaders/x/redirectsFromCsv.ts";
+import * as $$$26 from "./loaders/x/extension.ts";
+import * as $$$27 from "./loaders/x/font.ts";
+import * as $$$28 from "./loaders/x/image.ts";
+import * as $$$29 from "./loaders/x/productDetailsExt.ts";
+import * as $$$30 from "./loaders/x/productExt.ts";
+import * as $$$31 from "./loaders/x/redirects.ts";
+import * as $$$32 from "./loaders/x/redirectsFromCsv.ts";
 import * as $$$$0 from "./routes/404.tsx";
 import * as $$$$1 from "./routes/styles.css.ts";
 import * as $$$$2 from "./routes/_app.tsx";
@@ -214,10 +217,13 @@ const manifest = {
     "deco-sites/std/loaders/vtex/proxy.ts": $$$23,
     "deco-sites/std/loaders/vtex/user.ts": $$$24,
     "deco-sites/std/loaders/vtex/wishlist.ts": $$$25,
-    "deco-sites/std/loaders/x/font.ts": $$$26,
-    "deco-sites/std/loaders/x/image.ts": $$$27,
-    "deco-sites/std/loaders/x/redirects.ts": $$$28,
-    "deco-sites/std/loaders/x/redirectsFromCsv.ts": $$$29,
+    "deco-sites/std/loaders/x/extension.ts": $$$26,
+    "deco-sites/std/loaders/x/font.ts": $$$27,
+    "deco-sites/std/loaders/x/image.ts": $$$28,
+    "deco-sites/std/loaders/x/productDetailsExt.ts": $$$29,
+    "deco-sites/std/loaders/x/productExt.ts": $$$30,
+    "deco-sites/std/loaders/x/redirects.ts": $$$31,
+    "deco-sites/std/loaders/x/redirectsFromCsv.ts": $$$32,
   },
   "routes": {
     "./routes/_app.tsx": $$$$2,
