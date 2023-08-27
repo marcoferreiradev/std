@@ -227,6 +227,10 @@ export interface AggregateOffer {
 
 export interface Review extends Omit<Thing, "@type"> {
   "@type": "Review";
+  /** The actual author of the review. */
+  author?: string;
+  /** The actual date published of the review. */
+  datePublished?: string;
   /** The item that is being reviewed/rated. */
   itemReviewed?: string;
   /** Indicates, in the context of a {@link https://schema.org/Review Review} (e.g. framed as 'pro' vs 'con' considerations), negative considerations - either as unstructured text, or a list. */

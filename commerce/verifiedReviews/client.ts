@@ -32,7 +32,7 @@ export const createClient = (params: ConfigVerifiedReviews | undefined) => {
   const { idWebsite } = params;
 
   /** @description https://documenter.getpostman.com/view/2336519/SVzw6MK5#338f8f1b-4379-40a2-8893-080fe5234679 */
-  const rating = ({ productId }: { productId: string }) => {
+  const rating = async ({ productId }: { productId: string }) => {
     const payload = {
       query: "average",
       products: [productId],
@@ -40,25 +40,38 @@ export const createClient = (params: ConfigVerifiedReviews | undefined) => {
       plateforme: "br",
     };
 
-    return fetchAPI<Ratings>(`${baseUrl}`, {
-      method: "POST",
-      body: JSON.stringify(payload),
-    });
+    try {
+      const data = await fetchAPI<Ratings>(`${baseUrl}`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+
+      return Object.keys(data).length ? data : undefined;
+    } catch (error) {
+      console.warn("⚠ Error on call rating of Verified Review", error);
+      return undefined;
+    }
   };
 
   /** @description https://documenter.getpostman.com/view/2336519/SVzw6MK5#6d8ab05a-28b6-48b3-9e8f-6bbbc046619a */
-  const ratings = ({ productsIds }: { productsIds: string[] }) => {
+  const ratings = async ({ productsIds }: { productsIds: string[] }) => {
     const payload = {
       query: "average",
       products: productsIds,
       idWebsite: idWebsite,
       plateforme: "br",
     };
+    try {
+      const data = await fetchAPI<Ratings>(`${baseUrl}`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
 
-    return fetchAPI<Ratings>(`${baseUrl}`, {
-      method: "POST",
-      body: JSON.stringify(payload),
-    });
+      return Object.keys(data).length ? data : undefined;
+    } catch (error) {
+      console.warn("⚠ Error on call ratings of Verified Review", error);
+      return undefined;
+    }
   };
 
   /** @description https://documenter.getpostman.com/view/2336519/SVzw6MK5#daf51360-c79e-451a-b627-33bdd0ef66b8 */
@@ -103,7 +116,7 @@ export const createClient = (params: ConfigVerifiedReviews | undefined) => {
       Reviews | null,
     ];
 
-    const currentRating = responseRating[productId]?.[0] || {};
+    const currentRating = responseRating[productId]?.[0] || undefined;
 
     return {
       aggregateRating: currentRating
